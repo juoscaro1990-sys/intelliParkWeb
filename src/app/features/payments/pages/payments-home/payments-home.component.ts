@@ -41,7 +41,6 @@ export class PaymentsHomeComponent {
   loadPayments(): void {
 
     this.isLoading.set(true);
-    this.clearMessages();
 
     this._paymentsService.getPayments().subscribe({
       next: (payments) => {

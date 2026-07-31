@@ -40,8 +40,7 @@ export class ParkingHomeComponent {
   loadActiveRecords(): void {
 
     this.isLoading.set(true);
-    this.clearMessages();
-
+   
     this._parkingService.getActiveParkingRecords().subscribe({
       next: (recordsResponse) => {
         this.activeRecords.set(recordsResponse);
@@ -74,6 +73,10 @@ export class ParkingHomeComponent {
     this._parkingService.checkIn(payload).subscribe({
       next: (response) => {
         this.successMessage.set(response.message ?? 'Ingreso registrado correctamente.');
+
+        console.log('Mensaje asignado');
+        console.log(response);
+
         this.checkInForm.reset({
           vehicle_plate: '',
           vehicle_type: 'carro'
