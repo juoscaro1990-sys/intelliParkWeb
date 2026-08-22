@@ -24,15 +24,29 @@ export class VehiclesHomeComponent {
   readonly successMessage = signal('');
   readonly errorMessage = signal('');
 
-  readonly vehicleForm = this.formBuilder.nonNullable.group({
-    vehicle_plate: ['', [Validators.required, Validators.minLength(5)]],
+readonly vehicleForm = this.formBuilder.nonNullable.group({
+    vehicle_plate: [
+      '',
+      [
+        Validators.required,
+        Validators.minLength(5),
+        Validators.maxLength(8)
+      ]
+    ],
     vehicle_type: ['carro', [Validators.required]],
     vehicle_brand: ['', [Validators.required]],
     vehicle_color: ['', [Validators.required]]
   });
 
-  readonly searchForm = this.formBuilder.nonNullable.group({
-    vehicle_plate: ['', [Validators.required, Validators.minLength(5)]]
+readonly searchForm = this.formBuilder.nonNullable.group({
+    vehicle_plate: [
+      '',
+      [
+        Validators.required,
+        Validators.minLength(5),
+        Validators.maxLength(8)
+      ]
+    ]
   });
 
   ngOnInit(): void {
